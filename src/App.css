@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Fira+Sans+Condensed:wght@100;200;300;400;500;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+  background: #111
 }
 
-.App-link {
-  color: #61dafb;
+.app-container{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
+.app-container .ring{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: -30px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid #24ecff;
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0%{
     transform: rotate(0deg);
   }
-  to {
+
+  100%{
     transform: rotate(360deg);
   }
+}
+
+.app-container .ring:nth-child(2){
+  animation: animate2 4s linear infinite;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #93ff2d;
+  animation-delay: -1s;
+}
+
+.app-container .ring:nth-child(2):before{
+  content: '';
+  position: absolute;
+  top: initial;
+  bottom: 12px;
+  left: 12px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #93ff2d;
+  box-shadow: 0 0 0 5px #93ff2d33,
+  0 0 0 10px #93ff2d22,
+  0 0 0 20px #93ff2d11,
+  0 0 20px #93ff2d,
+  0 0 50px #93ff2d;
+}
+
+@keyframes animate2 {
+  0%{
+    transform: rotate(360deg);
+  }
+
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+.app-container .ring:nth-child(3){
+  position: absolute;
+  top: -66.66px;
+  animation: animate2 4s linear infinite;
+  animation-delay: -3s;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #ef1cf8;
+}
+
+.app-container .ring:nth-child(3):before{
+  content: '';
+  position: absolute;
+  top: initial;
+  bottom: 12px;
+  left: 12px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ef1cf8;
+  box-shadow: 0 0 0 5px #ef1cf833,
+  0 0 0 10px #ef1cf822,
+  0 0 0 20px #ef1cf811,
+  0 0 20px #ef1cf8,
+  0 0 50px #ef1cf8;
+}
+
+.app-container .ring::before{
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #24ecff;
+  box-shadow: 0 0 0 5px #24ecff33,
+  0 0 0 10px #24ecff22,
+  0 0 0 20px #24ecff11,
+  0 0 20px #24ecff,
+  0 0 50px #24ecff;
+}
+
+
+.app-container p{
+  position: absolute;
+  color: #fff;
+  font-size: 1.5em;
+  bottom: -80px;
+  letter-spacing: 0.15em;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
